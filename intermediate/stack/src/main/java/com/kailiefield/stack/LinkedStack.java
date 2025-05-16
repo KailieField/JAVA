@@ -27,7 +27,10 @@ public class LinkedStack<T> implements StackInterface<T> {
     @Override
     public T pop() {
         if(isEmpty()) throw new EmptyStackException();
-        return top.data;
+        T data = top.data;
+        top = top.next;
+        size--;
+        return data;
     }
 
     @Override
